@@ -30,8 +30,8 @@
     <aside class="left">
 
       <header class="header-left">
-        <img src="img/avatar_io.jpg" alt="">
-        <div>Nome Utente</div>
+        <img :src=" 'img/avatar' + user.avatar + '.jpg' "  :alt="user.name">
+        <div>{{ user.name }}</div>
         <ul>
           <li><i class="fas fa-circle-notch"></i></li>
           <li><i class="fas fa-comment-alt"></i></li>
@@ -55,7 +55,10 @@
         
       </div>
       <div class="contacts">
-          <div v-for="contact in contacts" class="contact">
+          <div 
+            v-for="contact in contacts" 
+            class="contact"
+            >
             <img :src=" 'img/avatar' +contact.avatar +'.jpg' " alt="">
             <div>{{ contact.name }}</div>
           </div>

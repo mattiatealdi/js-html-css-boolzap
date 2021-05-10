@@ -3,6 +3,12 @@
 const app = new Vue({
   el:"#app",
   data: {
+    
+    user: {
+      name: 'Nome utente',
+      avatar: '_io'
+    },
+
     contacts: [
       {
         name: 'Michele',

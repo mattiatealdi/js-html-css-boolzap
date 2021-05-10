@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+  integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+  crossorigin="anonymous"
+/>
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Khula:wght@400;700&display=swap"
+  rel="stylesheet"
+/>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div id="app" class="container">
+
+    <aside class="left">
+
+      <header class="header-left">
+        <img :src=" 'img/avatar' + user.avatar + '.jpg' "  :alt="user.name">
+        <div>{{ user.name }}</div>
+        <ul>
+          <li><i class="fas fa-circle-notch"></i></li>
+          <li><i class="fas fa-comment-alt"></i></li>
+          <li><i class="fas fa-ellipsis-v"></i></li>
+        </ul>
+      </header>
+
+      <div class="notifications">
+        <div class="bell">
+          <i class="fas fa-bell-slash"></i>
+          <div class="notifications-messages">
+            Ricevi notifiche di nuovi messaggi<br>Attiva notifiche desktop
+          </div>
+        </div>
+        
+      </div>
+
+      <div class="input-class">
+        
+        <input type="text" placeholder="Cerca o inizia una nuova chat">
+        
+      </div>
+      <div class="contacts">
+          <div 
+            v-for="(contact, index) in contacts" 
+            class="contact"
+            @click="changeName(index)"
+            >
+            <img :src=" 'img/avatar' +contact.avatar +'.jpg' " alt="">
+            <div>{{ contact.name }}</div>
+          </div>
+      </div>
+    </aside>
+
+    
+    <main class="right">
+
+      <header class="header-right">
+        <img src="img/avatar_1.jpg" alt="">
+        <div class="name-user">
+          <strong>Michele</strong><br>
+          Ultimo accesso alle
+        </div>
+        <ul>
+          <li><i class="fas fa-search"></i></li>
+          <li><i class="fas fa-paperclip"></i></li>
+          <li><i class="fas fa-ellipsis-v"></i></li>
+        </ul>
+        
+      </header>
+
+      <div class="right-messages-container">
+        <div class="right-messages" v-for="(contact,index) in contacts" v-if="contact.name == currentName">
+
+             <div class="message sent" v-for="message in contact.messages" v-if="message.status === 'sent' " :key="message.text">
+                 <span class="message-text" >{{message.text}}</span> 
+                 <span class="message-time"> 10/01/2020 15:30:55</span>
+                <i class="fa fa-chevron-down f-right message-options"></i>
+            </div>
+
+
+            <div class="message received" v-for="message in contact.messages"  v-if="message.status === 'received' " :key="message.text">
+                <span class="message-text"> {{message.text}} </span> 
+                <span class="message-time"> 10/01/2020 16:15:22</span> 
+                <i class="fa fa-chevron-down f-right message-options"></i>
+            </div>
+
+
+
+        </div>
+    </div>
+      
+      <footer>
+        <i class="far fa-smile"></i>
+        <input type="text" placeholder="Scrivi un messaggio">
+        <i class="fas fa-microphone"></i>
+      </footer>
+
+    </main>
+
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
