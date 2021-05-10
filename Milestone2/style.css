@@ -343,3 +343,8 @@ section .contentMsgOther{
   float: right;
   clear: both;
 }
+
+.line{
+  height: 10%;
+  width: 100%;
+}

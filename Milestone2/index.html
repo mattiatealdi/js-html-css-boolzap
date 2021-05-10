@@ -84,29 +84,35 @@
       </header>
 
       <div class="right-messages-container">
+
+        
         <div class="right-messages" v-for="(contact,index) in contacts" v-if="contact.name == currentName">
+          <div class="line" v-for="message in contact.messages">
 
-             <div class="message sent" v-for="message in contact.messages" v-if="message.status === 'sent' " :key="message.text">
+             <div class="message sent"  v-if="message.status === 'sent' " :key="message.text">
                  <span class="message-text" >{{message.text}}</span> 
-                 <span class="message-time"> 10/01/2020 15:30:55</span>
+                 <span class="message-time"> {{message.date}}</span>
                 <i class="fa fa-chevron-down f-right message-options"></i>
             </div>
 
 
-            <div class="message received" v-for="message in contact.messages"  v-if="message.status === 'received' " :key="message.text">
+            <div class="message received"  v-if="message.status === 'received' " :key="message.text">
                 <span class="message-text"> {{message.text}} </span> 
-                <span class="message-time"> 10/01/2020 16:15:22</span> 
+                <span class="message-time"> {{message.date}}</span> 
                 <i class="fa fa-chevron-down f-right message-options"></i>
             </div>
 
-
+          </div>
 
         </div>
     </div>
       
       <footer>
         <i class="far fa-smile"></i>
-        <input type="text" placeholder="Scrivi un messaggio">
+        <input type="text" placeholder="Scrivi un messaggio" 
+          v-model="strMsg"
+          @keyup.enter="addMsg"
+        >
         <i class="fas fa-microphone"></i>
       </footer>
 
@@ -114,6 +120,7 @@
 
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.4/dayjs.min.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

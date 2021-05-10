@@ -5,6 +5,10 @@ const app = new Vue({
   data: {
     
     currentName: 'Michele',
+    currentIndex: '0',
+    now: dayjs().format("D/M/YYYY H:mm:ss"),
+    strMsg: '',
+
 
     user: {
       name: 'Nome utente',
@@ -105,7 +109,33 @@ const app = new Vue({
     changeName(index){
       console.log(index);
       this.currentName = this.contacts[index].name;
+      this.currentIndex = index;
+    },
+
+    addMsg(){
+      console.log('here');
+/*       this.contacts[this.currentIndex].messages.text = this.strMsg;
+      this.contacts[this.currentIndex].messages.status = 'sent'; */
+      this.contacts[this.currentIndex].messages.push({
+        text: this.strMsg,
+        status : 'sent',
+        date: this.now
+      });
+      this.strMsg = ''
+/*    console.log(this.contacts[this.currentIndex].messages); */
+      setTimeout(()=>{
+        this.contacts[this.currentIndex].messages.push({
+          text: 'ok',
+          status : 'received',
+          date: this.now
+        });
+      }, 1000);
     }
+
+
+  },
+
+  mounted(){
 
   }
 
