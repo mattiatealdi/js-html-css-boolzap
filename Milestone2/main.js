@@ -142,6 +142,7 @@ const app = new Vue({
           return false;
         }
       })
+      console.log(this.arraySearched)
     }
 
   },
