@@ -8,7 +8,8 @@ const app = new Vue({
     currentIndex: '0',
     now: dayjs().format("D/M/YYYY H:mm:ss"),
     strMsg: '',
-
+    searchContact: '',
+    arraySearched: [],
 
     user: {
       name: 'Nome utente',
@@ -130,13 +131,19 @@ const app = new Vue({
           date: this.now
         });
       }, 1000);
+    },
+
+    filteredList(){
+      console.log(this.searchContact);
+      this.arraySearched = this.contacts.filter((contact)=>{
+        if(contact.name.includes(this.searchContact)){
+          return true;
+        }else{
+          return false;
+        }
+      })
     }
 
-
   },
-
-  mounted(){
-
-  }
 
 })
