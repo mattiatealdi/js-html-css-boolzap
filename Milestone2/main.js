@@ -148,10 +148,9 @@ const app = new Vue({
     filteredContacts(){
       this.contacts.forEach((contact) => {
         /* console.log(this.searchContact); */
-        if(contact.name.includes(this.searchContact)){
+        let contactLower = contact.name.toLowerCase();
+        if(contactLower.includes(this.searchContact.toLowerCase())){
           contact.visible = true;
-          console.log(contact.name);
-          console.log(contact.name.includes(this.searchContact))
         }else{
           contact.visible = false;
         }
