@@ -143,6 +143,19 @@ const app = new Vue({
         }
       })
       console.log(this.arraySearched)
+    },
+
+    filteredContacts(){
+      this.contacts.forEach((contact) => {
+        /* console.log(this.searchContact); */
+        if(contact.name.includes(this.searchContact)){
+          contact.visible = true;
+          console.log(contact.name);
+          console.log(contact.name.includes(this.searchContact))
+        }else{
+          contact.visible = false;
+        }
+      })
     }
 
   },

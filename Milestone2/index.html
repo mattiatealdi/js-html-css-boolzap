@@ -51,7 +51,7 @@
 
       <div class="input-class">
         
-        <input type="text" v-model="searchContact" @keyup="filteredList" placeholder="Cerca o inizia una nuova chat">
+        <input type="text" v-model="searchContact" @keyup="filteredContacts" placeholder="Cerca o inizia una nuova chat">
         
       </div>
       <div class="contacts">
@@ -59,7 +59,7 @@
             v-for="(contact, index) in contacts"
             class="contact"
             @click="changeName(index)"
-            v-if="arraySearched"
+            v-if="contact.visible"
             >
             <img :src=" 'img/avatar' +contact.avatar +'.jpg' " alt="">
             <div>{{ contact.name }}</div>
@@ -71,9 +71,9 @@
     <main class="right">
 
       <header class="header-right">
-        <img src="img/avatar_1.jpg" alt="">
-        <div class="name-user">
-          <strong>Michele</strong><br>
+        <img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" alt="">
+        <div class="name-user"> 
+          <strong>{{ contacts[currentIndex].name }}</strong><br>
           Ultimo accesso alle
         </div>
         <ul>
