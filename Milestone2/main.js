@@ -155,7 +155,7 @@ const app = new Vue({
           contact.visible = false;
         }
       })
-    }
+    },
 
   },
 
