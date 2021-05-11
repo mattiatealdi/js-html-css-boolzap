@@ -8,6 +8,8 @@ const app = new Vue({
     currentIndex: '0',
     messageIndex: 0,
     now: dayjs().format("D/M/YYYY H:mm:ss"),
+    nowHours: dayjs().format("H:mm:ss"),
+    lastAccess: '',
     strMsg: '',
     searchContact: '',
     arraySearched: [],
@@ -109,7 +111,6 @@ const app = new Vue({
   methods: {
 
     changeName(index){
-      console.log(index);
       this.currentName = this.contacts[index].name;
       this.currentIndex = index;
     },
@@ -163,8 +164,19 @@ const app = new Vue({
       this.messageIndex = index;
       /* console.log(this.messageIndex); */
       this.contacts[this.currentIndex].messages.splice(this.messageIndex, 1);
+      },
+
+      /* lastEntered(){
+        this.contacts[currentIndex].messages[messageIndex].date
+      } */
+
+      changeLastAccess(index){
+        console.log('cliccato');
+        console.log(this.contacts[index]);
+        console.log(this.contacts[index].messages[this.messages.length-1]) ;
       }
 
   },
+
 
 })

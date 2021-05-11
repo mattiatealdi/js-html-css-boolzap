@@ -369,3 +369,14 @@ i .fa.fa.chevron-down{
   margin-top: 8px;
   margin-left: 20px;
 }
+
+.addUser{
+  height: 30px;
+  width: 100%;
+  background-color: white;
+  
+}
+
+.addUser input{
+  
+}
