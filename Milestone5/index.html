@@ -40,8 +40,13 @@
       </header>
 
       <div class="addUser">
-        <span>AddUser: </span>
-        <input type="text" v-model="newUser" @keyup.enter="addUser" name="" id="" placeholder="Type a new user">
+        <i class="fas fa-paperclip" @click="buttonClicked"></i>
+        <div :class="isClicked ? 'show' : 'hide' ">
+          <span>AddUser: </span>
+          <input type="text" v-model="newUser" @keyup.enter="addUser" name="" id="" placeholder="Type a new user">
+        </div>
+        
+        
       </div>
 
       <div class="notifications">

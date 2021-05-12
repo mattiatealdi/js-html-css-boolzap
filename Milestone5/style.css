@@ -32,8 +32,8 @@ body{
 }
 
 .container .left{
-   width: 35%;
-  background-color: wheat;
+  width: 35%;
+  background-color: white;
 }
 
 .container .right{
@@ -69,7 +69,7 @@ body{
 }
 
 .left .header-left img{
-  width: 15%;
+  width:13%;
   border-radius: 50%;
   margin-top: 3px;
   margin-left: 10px;
@@ -136,7 +136,7 @@ body{
 
 .left .contacts{
   background-color: #f5f3f0;
-  height: calc(100% - 70px - 80px - 30px);
+  height: calc(100% - 70px - 80px - 30px - 30px);
   width: 100%;
 }
 
@@ -169,7 +169,7 @@ body{
 }
 
 .right .header-right img{
-  width: 10%;
+  width: 8%;
   border-radius: 50%;
   margin-top: 3px;
   margin-left: 10px;
@@ -376,15 +376,44 @@ i .fa.fa.chevron-down{
   height: 30px;
   width: 100%;
   background-color: white;
-  
 }
 
 .addUser span{
   color: gray;
+  font-size: 15px;
 }
 
 .addUser input{
   margin-left: 20px;
-  height: 100%;
-  width: 70%;
+  height: 30px;
+  width: 230px;
+}
+
+.addUser i{
+  color: lightgray;
+  font-size: 20px;
+  line-height: 30px;
+  margin-left: 20px;
+  cursor:pointer;
+}
+
+.addUser div{
+  display: inline-block;
+}
+
+/* .addUser i>div{
+  display:block;
+} */
+
+.addUser .hide{
+  display: none;
+}
+
+.addUser .show{
+  display: inline-block;
+}
+
+.addUser div,
+.addUser i{
+  display:inline-block;
 }

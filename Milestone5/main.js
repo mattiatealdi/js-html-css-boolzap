@@ -15,7 +15,7 @@ const app = new Vue({
     arraySearched: [],
     newUser: '',
     risposte: ['ciao', 'no', 'si', 'non ci pensare neanche', 'cosa stai dicendo?','questa casa non è un albergo'],
-    
+    isClicked: false,
 
     user: {
       name: 'Nome utente',
@@ -199,6 +199,12 @@ const app = new Vue({
           ]
         })
       },
+
+      buttonClicked(){
+        console.log('clicked');
+        this.isClicked = !this.isClicked;
+        console.log(this.isClicked);
+      }
 
 
 
