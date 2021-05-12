@@ -120,7 +120,7 @@ const app = new Vue({
       this.contacts[this.currentIndex].messages.push({
         text: this.strMsg,
         status : 'sent',
-        date: this.now
+        date: dayjs().format("D/M/YYYY H:mm:ss")
       });
       this.strMsg = ''
 /*    console.log(this.contacts[this.currentIndex].messages); */
@@ -128,7 +128,7 @@ const app = new Vue({
         this.contacts[this.currentIndex].messages.push({
           text: 'ok',
           status : 'received',
-          date: this.now
+          date: dayjs().format("D/M/YYYY H:mm:ss")
         });
       }, 1000);
     },

@@ -336,12 +336,14 @@ section .contentMsgOther{
   background: white;
   float: left;
   clear: both;
+  word-wrap: break-word;
 }
 
 .right .right-messages .message.sent {
   background: #D5F9BA;
   float: right;
   clear: both;
+  word-wrap: break-word;
 }
 
 .line{
@@ -377,6 +379,12 @@ i .fa.fa.chevron-down{
   
 }
 
+.addUser span{
+  color: gray;
+}
+
 .addUser input{
-  
+  margin-left: 20px;
+  height: 100%;
+  width: 70%;
 }

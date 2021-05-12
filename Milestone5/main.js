@@ -9,10 +9,13 @@ const app = new Vue({
     messageIndex: 0,
     now: dayjs().format("D/M/YYYY H:mm:ss"),
     nowHours: dayjs().format("H:mm:ss"),
-    lastAccess: '',
+    lastAccess: '10/01/2020 16:15:22',
     strMsg: '',
     searchContact: '',
     arraySearched: [],
+    newUser: '',
+    risposte: ['ciao', 'no', 'si', 'non ci pensare neanche', 'cosa stai dicendo?','questa casa non è un albergo'],
+    
 
     user: {
       name: 'Nome utente',
@@ -117,20 +120,21 @@ const app = new Vue({
 
     addMsg(){
       console.log('here');
-/*       this.contacts[this.currentIndex].messages.text = this.strMsg;
+      /*this.contacts[this.currentIndex].messages.text = this.strMsg;
       this.contacts[this.currentIndex].messages.status = 'sent'; */
       this.contacts[this.currentIndex].messages.push({
         text: this.strMsg,
         status : 'sent',
-        date: this.now
+        date: dayjs().format("D/M/YYYY H:mm:ss")
       });
+      let risp = this.risposte[Math.floor(Math.random() * this.risposte.length-1) + 1];
       this.strMsg = ''
-/*    console.log(this.contacts[this.currentIndex].messages); */
+      /*console.log(this.contacts[this.currentIndex].messages); */
       setTimeout(()=>{
         this.contacts[this.currentIndex].messages.push({
-          text: 'ok',
+          text: risp,
           status : 'received',
-          date: this.now
+          date: dayjs().format("D/M/YYYY H:mm:ss")
         });
       }, 1000);
     },
@@ -171,12 +175,37 @@ const app = new Vue({
       } */
 
       changeLastAccess(index){
-        console.log('cliccato');
-        console.log(this.contacts[index]);
-        console.log(this.contacts[index].messages[this.messages.length-1]) ;
-      }
+        /* console.log('cliccato');
+        console.log(this.messages); */
+        this.lastAccess = this.contacts[index].messages[this.contacts[index].messages.length-1].date;
+        console.log(this.lastAccess);
+      },
+
+
+      addUser(){
+        let avatarNumber =  Math.floor(Math.random() * 8) + 1;
+        console.log(avatarNumber);
+        console.log('addUser');
+        this.contacts.push({
+          name: this.newUser,
+          avatar: '_'+avatarNumber,
+          visible: true,
+          messages: [
+            {
+              date: dayjs().format("D/M/YYYY H:mm:ss"),
+              text: '',
+              status: undefined
+            }
+          ]
+        })
+      },
+
+
+
 
   },
+
+  
 
 
 })

@@ -40,8 +40,8 @@
       </header>
 
       <div class="addUser">
-        <span>AddUser</span>
-        <input type="text" name="" id="">
+        <span>AddUser: </span>
+        <input type="text" v-model="newUser" @keyup.enter="addUser" name="" id="" placeholder="Type a new user">
       </div>
 
       <div class="notifications">
@@ -79,7 +79,7 @@
         <img :src="`img/avatar${contacts[currentIndex].avatar}.jpg`" alt="">
         <div class="name-user"> 
           <strong><p>{{ contacts[currentIndex].name }}</p></strong>
-          <p>Ultimo accesso oggi alle {{ nowHours }}</p>
+          <p>Ultimo accesso: {{ lastAccess }}</p>
         </div>
         <ul>
           <li><i class="fas fa-search"></i></li>
@@ -116,7 +116,7 @@
       <footer>
         <i class="far fa-smile"></i>
         <input type="text" placeholder="Scrivi un messaggio" 
-          v-model="strMsg"
+          v-model.trim="strMsg"
           @keyup.enter="addMsg"
         >
         <i class="fas fa-microphone"></i>
